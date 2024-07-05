@@ -1,0 +1,103 @@
+# Ignore Visual Studio temporary files, build results, and
+# common output directories.
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]emp/
+[Tt]empPE/
+*.log
+*.vspscc
+*.vssscc
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# WCF specific ignores
+Service References/
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+
+# Include if using Visual Studio 2017 or earlier
+# Uncomment if using NuGet Package Restore
+#**/[Pp]ackages/*
+# Uncomment if using the old project.json based NuGet restore
+#*.nuget/packages/*
+
+# Exclude if using VS 2017 or above
+!**/[Pp]ackages/build/
+!**/[Pp]ackages/repositories.config
+
+# Include if using NuGet Package Restore
+#**/[Pp]ackages/*
+
+# Windows Form Designer generated code
+*.Designer.cs
+
+# Local history for Visual Studio
+.vscode/
+
+# VS Code directories
+.vscode/*
+.history/
+.idea/
+
+# Ignore the NCrunch
+*.ncrunchsolution
+*.ncrunchproject
+.ncrunchsolution*
+.ncrunchproject*
+.ncrunch/.cache/
+.ncrunch/.user/
+
+# Visual Studio specific ignores
+.vs/
+.vscode/
+.history/
+.idea/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
