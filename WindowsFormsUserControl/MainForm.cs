@@ -25,12 +25,8 @@ namespace WindowsFormsUserControl
 
             if (users != null && users.Count > 0)
             {
-                // Clear existing columns
                 dataGridViewUsers.Columns.Clear();
-
-                // Define columns in the desired order
                 dataGridViewUsers.AutoGenerateColumns = false;
-
                 AddColumn("Id", "ID");
                 AddColumn("FullName", "Full Name");
                 AddColumn("DRFO", "DRFO");
@@ -38,8 +34,6 @@ namespace WindowsFormsUserControl
                 AddColumn("PhoneNumber", "Phone Number");
                 AddColumn("Created", "Created");
                 AddColumn("LastUpdated", "Last Updated");
-
-                // Bind the data source
                 dataGridViewUsers.DataSource = users;
             }
             else

@@ -24,8 +24,6 @@ namespace UserControlApp
         {
             try
             {
-
-
                 var users = new List<UserDTO>();
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand("SELECT * FROM Users", connection))
@@ -85,8 +83,6 @@ namespace UserControlApp
         {
             try
             {
-
-
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand("UPDATE Users SET FullName=@FullName, DRFO=@DRFO, Email=@Email, PhoneNumber=@PhoneNumber, LastUpdated=@LastUpdated WHERE Id=@Id", connection))
                 {
