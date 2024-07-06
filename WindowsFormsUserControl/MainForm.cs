@@ -10,15 +10,15 @@ namespace WindowsFormsUserControl
         public MainForm()
         {
             InitializeComponent();
-            LoadData();
+            LoadDataAsync();
         }
 
         private void btnLoadUsers_Click(object sender, EventArgs e)
         {
-            LoadData();
+            LoadDataAsync();
         }
 
-        private async void LoadData()
+        private async void LoadDataAsync()
         {
             UserServiceClient service = new UserServiceClient();
             List<UserDTO> users = await service.GetAllUsersAsync();
@@ -69,10 +69,12 @@ namespace WindowsFormsUserControl
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridViewUsers.SelectedRows.Count > 0)
+            if (dataGridViewUsers.SelectedCells.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridViewUsers.SelectedRows[0];
-                uint id = Convert.ToUInt32(selectedRow.Cells["Id"].Value);
+                int rowIndex = dataGridViewUsers.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewUsers.Rows[rowIndex];
+                UserDTO selectedUser = (UserDTO)selectedRow.DataBoundItem;
+                var id = selectedUser.Id;
                 UserServiceClient service = new UserServiceClient();
                 if (await service.DeleteUserAsync(id) == 1)
                 {
@@ -83,6 +85,7 @@ namespace WindowsFormsUserControl
             {
                 MessageBox.Show("Будь ласка оберіть рядок");
             }
+            LoadDataAsync();
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -95,12 +98,14 @@ namespace WindowsFormsUserControl
 
             addUserForm.Show(this);
         }
+
         void addUserForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             addUserForm = null;
             Show();
-            LoadData();
+            LoadDataAsync();
         }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int rowIndex = dataGridViewUsers.SelectedCells[0].RowIndex;
@@ -120,7 +125,7 @@ namespace WindowsFormsUserControl
 
             editUserForm.Dispose();
             editUserForm = null;
-            LoadData();
+            LoadDataAsync();
         }
     }
 }
